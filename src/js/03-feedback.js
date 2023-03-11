@@ -15,7 +15,7 @@ function saveMsg(event) {
 
 form.addEventListener('input', throttle(saveMsg, 500));
 
-if (JSON.parse(localStorage.getItem('feedback-form-state')) !== '') {
+if (localStorage.getItem('feedback-form-state') !== null) {
   const formElement = JSON.parse(localStorage.getItem('feedback-form-state'));
 
   form.email.value = formElement.email || '';
