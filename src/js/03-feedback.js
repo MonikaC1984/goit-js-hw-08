@@ -22,10 +22,12 @@ if (localStorage.getItem('feedback-form-state') !== null) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const dataInput = {
+  const dataInput = JSON.stringify({
     email: form.email.value,
     message: form.message.value,
-  };
+  });
+
+  console.log(dataInput);
 
   localStorage.removeItem('feedback-form-state');
   form.email.value = '';
