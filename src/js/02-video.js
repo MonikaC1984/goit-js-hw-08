@@ -6,11 +6,13 @@ const player = new Player('vimeo-player');
 player.on(
   'timeupdate',
   throttle(function (data) {
-    localStorage.setItem('videoplayer-current-time', data.seconds);
-    console.log(data);
+    localStorage.setItem(
+      'videoplayer-current-time',
+      JSON.stringify(data.seconds)
+    );
   }, 1000)
 );
 
 player.setCurrentTime(
-  JSON.parse(localStorage.getItem('videoplayer-current-time'))
+  JSON.parse(localStorage.getItem('videoplayer-current-time')) || 0
 );
